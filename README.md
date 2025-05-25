@@ -146,7 +146,7 @@ Install the necessary Python libraries using pip:
 
 ```bash
 pip install opencv-python time numpy pyserial imutils picamera2 ultralytics
-
+```
 
 ## Project Overview
 
