@@ -77,7 +77,7 @@ Software/
 │   └── Arduino C++ Low-level Control
 │
 └── Interface/
-    └── Kotlin/Jetpack Compose App
+    └──  Android App
 ```
 
 ## 🚀 Getting Started <a name = "getting-started"></a>
@@ -150,14 +150,6 @@ An Android application (to be uploaded) provides:
 
 See our robot in action: [YouTube Demo](https://youtu.be/VdJLIz-9X8A)
 
-## Future Improvements
-
-- Integration of 3D depth sensing
-- Enhanced motion control with encoder feedback
-- LiDAR-based distance sensing
-- ROS implementation
-- Improved power management system
-- Enhanced user interface with live video feed
 
 ## ⚠️ Current Limitations <a name = "current-limitations"></a>
 
@@ -237,7 +229,7 @@ For more details, see the [full license text](https://creativecommons.org/licens
 @misc{yolov8_waste_sorting_robot,
   title={YOLOv8-Guided Mobile Robot with 5DOF Arm for Autonomous Waste Sorting},
   author={Haouioui, Sid Ahmed and Houhou, Mohamed Dhia Eddine},
-  year={2024},
+  year={2025},
   publisher={GitHub},
   howpublished={\url{https://github.com/SidCodesRobotics/yolo-robot-picknplace}}
 }
