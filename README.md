@@ -80,68 +80,72 @@ Software/
     └──  Android App
 ```
 
-## 🚀 Getting Started <a name = "getting-started"></a>
+# Autonomous Waste Sorting Robot
 
-A final year project by Haouioui Sid Ahmed and Houhou Mohamed Dhia Eddine that implements an autonomous waste sorting robot using computer vision and robotics.
+## 🚀 Getting Started <a name="getting-started"></a>
+
+This is a final year project by Haouioui Sid Ahmed and Houhou Mohamed Dhia Eddine, focused on implementing an autonomous waste sorting robot using computer vision and robotics.
 
 Our paper can be found here: [Link to be added]
 
-Hardware Requirements
-Before you begin, ensure you have the following main hardware components:
+---
 
-Raspberry Pi 4 Model B (8 GB RAM recommended): For computer vision and high-level control.
-Arduino Mega 2560: For motor control and low-level actuation tasks.
-Robotic Arm: A 5-DOF arm using SG90 and MG996R servo motors.
-4-Wheeled Mobile Platform: Driven by TT gear motors.
-Raspberry Pi Camera Module v2: Provides visual input for waste detection.
-HC-SR04 Ultrasonic Sensor: For distance measurement.
-HC-05 Bluetooth Module: For potential remote control and debugging.
-Power Supply: A 7.4V 3000mAh LiPo battery pack for the Raspberry Pi and three 3.7V 2800mAh 18650 batteries for the Arduino and its components.
-Motor Driver: L293D Motor Driver Module for DC motors.
-PWM Driver Board: PCA9685 for controlling servo motors.
-UART Connection: Ensure proper wiring between the Raspberry Pi (Serial /dev/ttyAMA0) and Arduino (Serial3) for communication.
-Software Setup
-1. Arduino Code (arduino_code.txt)
+### Hardware Requirements
+
+Before you begin, ensure you have the following main **hardware components**:
+
+* **Raspberry Pi 4 Model B** (8 GB RAM recommended): For computer vision and high-level control.
+* **Arduino Mega 2560**: For motor control and low-level actuation tasks.
+* **Robotic Arm**: A 5-DOF arm using SG90 and MG996R servo motors.
+* **4-Wheeled Mobile Platform**: Driven by TT gear motors.
+* **Raspberry Pi Camera Module v2**: Provides visual input for waste detection.
+* **HC-SR04 Ultrasonic Sensor**: For distance measurement.
+* **HC-05 Bluetooth Module**: For potential remote control and debugging.
+* **Power Supply**:
+    * A 7.4V 3000mAh LiPo battery pack for the Raspberry Pi.
+    * Three 3.7V 2800mAh 18650 batteries for the Arduino and its components.
+* **Motor Driver**: L293D Motor Driver Module for DC motors.
+* **PWM Driver Board**: PCA9685 for controlling servo motors.
+* **UART Connection**: Ensure proper wiring between the **Raspberry Pi (Serial /dev/ttyAMA0)** and **Arduino (Serial3)** for communication.
+
+---
+
+### Software Setup
+
+#### 1. Arduino Code (`arduino_code.txt`)
+
 This code controls the robot's physical movements, arm actuation, and communication with the Raspberry Pi via UART.
 
-Development Environment:
-Install the Arduino IDE.
-Libraries:
+**Development Environment**:
+Install the **Arduino IDE**.
+
+**Libraries**:
 You will need to install the following libraries within the Arduino IDE:
-Wire.h: For I2C communication.
-Adafruit_PWMServoDriver.h: For controlling the PCA9685 servo driver.
-AFMotor.h: For controlling the DC motors via the Adafruit Motor Shield (or L293D-based shield).
-Uploading the Code:
-Open arduino_code.txt in the Arduino IDE.
-Select "Arduino Mega 2560" from Tools > Board.
-Select the correct serial port for your Arduino from Tools > Port.
-Upload the sketch to your Arduino Mega 2560.
-2. Raspberry Pi Code (rpi_code.py)
+* `Wire.h`: For I2C communication.
+* `Adafruit_PWMServoDriver.h`: For controlling the PCA9685 servo driver.
+* `AFMotor.h`: For controlling the DC motors via the Adafruit Motor Shield (or L293D-based shield).
+
+**Uploading the Code**:
+1.  Open `arduino_code.txt` in the Arduino IDE.
+2.  Select "**Arduino Mega 2560**" from `Tools` > `Board`.
+3.  Select the correct serial port for your Arduino from `Tools` > `Port`.
+4.  Upload the sketch to your Arduino Mega 2560.
+
+#### 2. Raspberry Pi Code (`rpi_code.py`)
+
 This Python script handles computer vision using YOLOv8n, object detection, bin identification, and sends commands to the Arduino.
 
-Operating System:
-Ensure your Raspberry Pi is running a compatible Linux OS (e.g., Raspberry Pi OS).
-Python Environment:
-The code is written in Python 3. Make sure Python 3 is installed.
-Libraries:
+**Operating System**:
+Ensure your Raspberry Pi is running a compatible Linux OS (e.g., **Raspberry Pi OS**).
+
+**Python Environment**:
+The code is written in **Python 3**. Make sure Python 3 is installed.
+
+**Libraries**:
 Install the necessary Python libraries using pip:
 
+```bash
 pip install opencv-python time numpy pyserial imutils picamera2 ultralytics
-The ultralytics library is used for the YOLO model. The PDF states that the model was trained using yolov8n.pt. You will need to ensure your trained YOLO model (e.g., best_ncnn_model as referenced in the code ) is placed in the same directory as rpi_code.py or accessible by the script.
-
-Camera Setup:
-Ensure your Raspberry Pi Camera Module v2 is properly connected to the CSI camera port and enabled in the Raspberry Pi configuration.
-Serial Communication (UART):
-The rpi_code.py communicates with the Arduino via /dev/ttyAMA0. Ensure UART is enabled on your Raspberry Pi and that the correct serial port is configured. You might need to disable console over serial for this port.
-Running the Code:
-Navigate to the directory containing rpi_code.py in your Raspberry Pi's terminal.
-Execute the script:
-python3 rpi_code.py
-
-The program will initialize the camera, load the YOLO model, and establish serial communication with the Arduino.
-Keyboard shortcuts will be available in the camera window for controlling the robot (e.g., 'q' to quit, 'a' for auto mode, 'o' for manual mode, '1' for Metal object, '2' for Plastic, '3' for Paper, 's' to skip to next state).
-Communication Flow:
-The Raspberry Pi and Arduino communicate via a UART serial connection. The Raspberry Pi sends high-level commands to the Arduino, and the Arduino sends back status updates and sensor data.
 
 
 ## Project Overview
