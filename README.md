@@ -8,8 +8,7 @@
 > 🎓 Final year project implementing an autonomous waste sorting robot using computer vision and robotics.
 
 <p align="center">
-  <img src="![IMG_6712](https://github.com/user-attachments/assets/50f6a22b-fe3a-4e8e-aa47-f365496048cd)
-" alt="MegaPi Robot" width="600"/>
+<img src="https://github.com/user-attachments/assets/50f6a22b-fe3a-4e8e-aa47-f365496048cd" alt="MegaPi" width="400"/>
 </p>
 
 ## 📝 Table of Contents
