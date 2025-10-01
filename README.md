@@ -202,7 +202,7 @@ The 5-DOF robotic arm is based on the design from [OmArTronics](https://omartron
 - Pre-programmed movement sequences for reliable operation
 
 ### Mobile Application
-An Android application (to be uploaded) provides:
+An Android application (MegaPi APP) provides:
 - Manual and autonomous mode control
 - Real-time status monitoring
 - Speed control in manual mode
@@ -223,16 +223,15 @@ See our robot in action: [YouTube Demo](https://youtu.be/VdJLIz-9X8A)
 ### Locomotion and Chassis
 - [ ] No encoder feedback for precise movement
 - [ ] Timer-based turning (accuracy issues)
-- [ ] Insufficient motor/wheel strength for full weight
 
 ### Perception and Sensing
-- [ ] Unreliable ultrasonic readings
+- [ ] Not that relaiable ultrasonic readings
 - [ ] Limited 2D vision (no depth perception)
 - [ ] ArUco marker dependency for bin detection
 - [ ] Limited field of view (no environment scanning)
 
 ### Performance
-- [ ] Slow object detection (~1 FPS on RPi)
+- [ ] Slow object detection (~1 FPS on RPi4) / not obtimized enough
 - [ ] Occasional misclassifications
 - [ ] Basic state machine architecture
 - [ ] Limited Bluetooth range/speed (HC-05)
