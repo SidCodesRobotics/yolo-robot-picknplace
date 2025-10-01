@@ -360,24 +360,10 @@ This reduces wiring complexity and improves stability.
 
 ---
 
-### Q10. What’s the roadmap for improving this project overall?
+
+### Q10. How can safety be improved?
 
 **A10:**  
-Suggested improvement path:  
-1. Add closed-loop motor control with encoders.  
-2. Integrate inverse kinematics for the arm.  
-3. Upgrade to depth-based perception.  
-4. Enhance detection with larger datasets and accelerators.  
-5. Automate the full detection-to-disposal cycle.  
-6. Improve power management with a unified battery system.  
-
-This would evolve the project from a working demo into a more advanced platform.
-
----
-
-### Q11. How can safety be improved?
-
-**A11:**  
 Safety matters even in research projects. Improvements include:  
 - Add **force limits** for the arm.  
 - Include **collision detection** via current sensing.  
@@ -387,16 +373,11 @@ This ensures safe testing and development.
 
 ---
 
-### Q12. What if someone wants to build on this project further?
+### Q11. What if someone wants to build on this project further?
 
-**A12:**  
+**A11:**  
 Future directions could include:  
 - Transitioning to **ROS/ROS2** for scalability.  
-- Designing a **custom PCB** to replace separate controllers.  
-- Exploring new use cases such as **assistive robotics or industrial sorting**.  
-
-This project is intended as a foundation, with many opportunities for extension.
-
 
 ## ✍️ Authors <a name = "authors"></a>
 
