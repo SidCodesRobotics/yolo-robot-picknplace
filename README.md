@@ -280,9 +280,7 @@ This would enable more accurate 3D localization of objects.
 **A3:**  
 Ways to improve detection accuracy:  
 - Collect more training data from varied environments.  
-- Apply data augmentation (brightness, blur, occlusion).  
 - Run the model on faster hardware (Coral TPU, Jetson Nano).  
-- Add fallback rules (e.g., ignore low-confidence detections).  
 
 These steps would make classification more consistent and reliable.
 
@@ -294,7 +292,6 @@ These steps would make classification more consistent and reliable.
 ArUco markers are useful for testing but not practical long term.  
 Future improvements:  
 - Train the system to recognize bins by **shape or color**.  
-- Combine ArUco with **visual detection** as a fallback.  
 
 This would reduce reliance on artificial markers and make the system more flexible.
 
@@ -303,20 +300,18 @@ This would reduce reliance on artificial markers and make the system more flexib
 ### Q5. Navigation is timer-based. What would be a better approach?
 
 **A5:**  
-Timer-based navigation is simple but inaccurate. Better approaches include:  
 - Adding **wheel encoders** for closed-loop control.  
 - Implementing **basic SLAM** using a camera or depth sensor.  
 - Adding **bump sensors** as a safety mechanism.  
 
-This would make movement more repeatable and precise.
+This would make movement more precise.
 
 ---
 
 ### Q6. Ultrasonic sensors are noisy. Should we replace them?
 
 **A6:**  
-Ultrasonic sensors are fine for experiments but can be inconsistent.  
-Upgrades could include:  
+Ultrasonic sensors are fine for experiments but it's inconsistent.  
 - Switching to **ToF sensors** (VL53L0X).  
 - Using a **depth camera** for obstacle detection.  
 - Keeping bump sensors as a backup.  
@@ -341,10 +336,6 @@ This would make the arm more durable.
 
 **A8:**  
 Yes. The app is useful for testing, but autonomy should be the next step:  
-- Create a **state machine** to automate the cycle: detect → navigate → pick → place.  
-- Keep the app for monitoring and manual overrides.  
-
-This would allow the robot to operate independently.
 
 ---
 
@@ -354,7 +345,7 @@ This would allow the robot to operate independently.
 Yes. For simplicity and reliability:  
 - Use a **single Li-ion pack** with a Battery Management System (BMS).  
 - Add **voltage monitoring** for safe shutdown.  
-- Optionally design a **docking/charging system**.  
+- Design a **docking/charging system**.  
 
 This reduces wiring complexity and improves stability.
 
