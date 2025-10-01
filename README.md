@@ -244,89 +244,158 @@ See our robot in action: [YouTube Demo](https://youtu.be/VdJLIz-9X8A)
 ## 🛣️ Roadmap <a name = "roadmap"></a>
 A roadmap for contributors, students, or hobbyists who may want to extend the system and make it more robust.
 
-Q1. The robotic arm currently uses pre-set positions. Is this enough?
-A1.
-Pre-set positions are sufficient for a demo or proof of concept, but they limit flexibility. A natural next step is adding inverse kinematics (IK) so the arm can move to any target position dynamically. Using servo feedback or smart servos would also improve precision. This would make the robot better at adapting to objects in different positions.
+# Q&A (Roadmap for Improvements)
 
-Q2. The project uses only a 2D Pi Camera. Should we add depth sensing?
-A2.
-Yes. A 2D camera works for testing, but without depth perception the robot has trouble estimating distances. Adding a depth camera (e.g., Intel RealSense, Orbbec) or combining the Pi Camera with distance sensors would allow more accurate 3D localization of objects, which is key for reliable grasping.
+This section highlights common questions about the project and outlines possible improvements.  
+The goal is not to present a final product, but to provide a roadmap for making the system more robust and capable.
 
-Q3. The YOLOv8 model sometimes misclassifies objects. How can detection be improved?
-A3.
-Model accuracy can be improved by:
-Collecting more training data from varied environments.
-Using augmentation (brightness, blur, occlusion).
-Running the model on faster hardware such as a Coral TPU or Jetson Nano for real-time inference.
-Adding fallback rules, for example, ignoring low-confidence detections.
+---
+
+### Q1. The robotic arm currently uses pre-set positions. Is this enough?
+
+**A1:**  
+Pre-set positions are sufficient for a demo or proof of concept, but they limit flexibility.  
+Next steps for improvement include:  
+- Adding **inverse kinematics (IK)** so the arm can move to any target position dynamically.  
+- Using **servo feedback or smart servos** for better precision.  
+
+This would make the robot better at adapting to objects in different positions.
+
+---
+
+### Q2. The project uses only a 2D Pi Camera. Should we add depth sensing?
+
+**A2:**  
+A 2D camera works for testing, but without depth perception the robot has trouble estimating distances.  
+Improvements:  
+- Add a **depth camera** (e.g., Intel RealSense, Orbbec).  
+- Or combine the Pi Camera with **distance sensors**.  
+
+This would enable more accurate 3D localization of objects.
+
+---
+
+### Q3. The YOLOv8 model sometimes misclassifies objects. How can detection be improved?
+
+**A3:**  
+Ways to improve detection accuracy:  
+- Collect more training data from varied environments.  
+- Apply data augmentation (brightness, blur, occlusion).  
+- Run the model on faster hardware (Coral TPU, Jetson Nano).  
+- Add fallback rules (e.g., ignore low-confidence detections).  
+
 These steps would make classification more consistent and reliable.
 
-Q4. Bin detection relies on ArUco markers. Can this be improved?
-A4.
-ArUco markers are helpful for testing, but not very practical long term. A future improvement would be to train the system to recognize bins by shape or color, or to combine markers with visual detection. This would reduce reliance on artificial markers and make the system more flexible.
+---
 
-Q5. Navigation is timer-based. What would be a better approach?
-A5.
-Timer-based navigation is simple but inaccurate. Improvements could include:
-Adding wheel encoders for closed-loop motor control.
-Implementing basic SLAM using the camera or depth sensor.
-Adding bump sensors as a fallback safety mechanism.
+### Q4. Bin detection relies on ArUco markers. Can this be improved?
+
+**A4:**  
+ArUco markers are useful for testing but not practical long term.  
+Future improvements:  
+- Train the system to recognize bins by **shape or color**.  
+- Combine ArUco with **visual detection** as a fallback.  
+
+This would reduce reliance on artificial markers and make the system more flexible.
+
+---
+
+### Q5. Navigation is timer-based. What would be a better approach?
+
+**A5:**  
+Timer-based navigation is simple but inaccurate. Better approaches include:  
+- Adding **wheel encoders** for closed-loop control.  
+- Implementing **basic SLAM** using a camera or depth sensor.  
+- Adding **bump sensors** as a safety mechanism.  
+
 This would make movement more repeatable and precise.
 
-Q6. Ultrasonic sensors are noisy. Should we replace them?
-A6.
-Ultrasonic sensors are fine for experiments, but they produce inconsistent readings. Possible upgrades include:
-Switching to ToF sensors (like VL53L0X) for more accuracy.
-Using the depth camera for obstacle detection.
-Keeping bump sensors as backup.
-This would create a more reliable perception system.
+---
 
-Q7. The arm struggles with heavier objects. How can we improve strength?
-A7.
-For light demos, small hobby servos work fine, but to handle heavier loads:
-Replace SG90 servos with metal-gear, higher-torque models.
-Add overcurrent protection to prevent burnout.
-Use stronger frame materials such as aluminum or reinforced plastic.
-This would make the arm more capable and durable.
+### Q6. Ultrasonic sensors are noisy. Should we replace them?
 
-Q8. The robot depends on a mobile app for control. Should it be more autonomous?
-A8.
-Yes. While the app is useful for testing, a clear next step is creating a state machine that automates the cycle: detect → navigate → pick → place. The app could then be used mainly for monitoring and overrides, while the robot runs independently.
+**A6:**  
+Ultrasonic sensors are fine for experiments but can be inconsistent.  
+Upgrades could include:  
+- Switching to **ToF sensors** (VL53L0X).  
+- Using a **depth camera** for obstacle detection.  
+- Keeping bump sensors as a backup.  
 
-Q9. The project uses multiple separate batteries. Is there a better approach?
-A9.
-Yes. For simplicity and stability:
-Move to a single Li-ion pack with a Battery Management System (BMS).
-Add voltage monitoring for safe shutdown.
-Optionally design a docking/charging system for continuous operation.
-This would reduce wiring complexity and improve reliability.
+This would provide more reliable perception.
 
-Q10. What’s the roadmap for improving this project overall?
-A10.
-A suggested improvement path is:
-Add closed-loop motor control with encoders.
-Integrate inverse kinematics for the robotic arm.
-Upgrade to depth-based perception for object pickup.
-Enhance waste detection with better datasets and accelerators.
-Automate the full detection-to-disposal pipeline.
-Improve power management with a unified battery system.
-These steps would turn the project from a working demo into a more advanced research or hobby platform.
+---
 
-Q11. How can safety be improved?
-A11.
-Even in a research project, safety matters. Suggested improvements:
-Add force limits for the arm.
-Include collision detection using current sensing.
-Implement an emergency stop button.
-This would make the system safer for testing and development.
+### Q7. The arm struggles with heavier objects. How can we improve strength?
 
-Q12. What if someone wants to build on this project further?
-A12.
-Future directions could include:
-Transitioning to ROS/ROS2 for scalability.
-Designing a custom PCB to replace separate microcontrollers.
-Exploring new use cases such as assistive robotics or industrial sorting.
-This project is meant as a foundation, and there are many opportunities to extend it.
+**A7:**  
+For light demos, hobby servos are fine, but improvements include:  
+- Replace SG90 servos with **metal-gear, higher-torque models**.  
+- Add **overcurrent protection** to prevent burnout.  
+- Use stronger frame materials (aluminum, reinforced plastic).  
+
+This would make the arm more durable.
+
+---
+
+### Q8. The robot depends on a mobile app for control. Should it be more autonomous?
+
+**A8:**  
+Yes. The app is useful for testing, but autonomy should be the next step:  
+- Create a **state machine** to automate the cycle: detect → navigate → pick → place.  
+- Keep the app for monitoring and manual overrides.  
+
+This would allow the robot to operate independently.
+
+---
+
+### Q9. The project uses multiple separate batteries. Is there a better approach?
+
+**A9:**  
+Yes. For simplicity and reliability:  
+- Use a **single Li-ion pack** with a Battery Management System (BMS).  
+- Add **voltage monitoring** for safe shutdown.  
+- Optionally design a **docking/charging system**.  
+
+This reduces wiring complexity and improves stability.
+
+---
+
+### Q10. What’s the roadmap for improving this project overall?
+
+**A10:**  
+Suggested improvement path:  
+1. Add closed-loop motor control with encoders.  
+2. Integrate inverse kinematics for the arm.  
+3. Upgrade to depth-based perception.  
+4. Enhance detection with larger datasets and accelerators.  
+5. Automate the full detection-to-disposal cycle.  
+6. Improve power management with a unified battery system.  
+
+This would evolve the project from a working demo into a more advanced platform.
+
+---
+
+### Q11. How can safety be improved?
+
+**A11:**  
+Safety matters even in research projects. Improvements include:  
+- Add **force limits** for the arm.  
+- Include **collision detection** via current sensing.  
+- Implement an **emergency stop button**.  
+
+This ensures safe testing and development.
+
+---
+
+### Q12. What if someone wants to build on this project further?
+
+**A12:**  
+Future directions could include:  
+- Transitioning to **ROS/ROS2** for scalability.  
+- Designing a **custom PCB** to replace separate controllers.  
+- Exploring new use cases such as **assistive robotics or industrial sorting**.  
+
+This project is intended as a foundation, with many opportunities for extension.
 
 
 ## ✍️ Authors <a name = "authors"></a>
